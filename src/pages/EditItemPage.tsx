@@ -24,7 +24,7 @@ export function EditItemPage() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['items'] })
       queryClient.invalidateQueries({ queryKey: ['items', idNum] })
-      navigate(`/items/${idNum}`)
+      navigate('/')
     },
   })
 

@@ -1,13 +1,11 @@
 .container {
-  min-height: 100vh;
+  min-height: 812px;
   padding: 24px;
-  background: var(--color-background-dark);
-  color: var(--color-text-light);
+  background: var(--color-background);
 }
 
 .formBlock {
-  background: #fff;
-  border-radius: 16px 16px 0 0;
+  background: var(--color-background);
   padding: 24px;
   position: relative;
 }
@@ -44,7 +42,7 @@
 }
 
 .backLink {
-  color: var(--color-text-light);
+  color: var(--color-text-primary);
   text-decoration: none;
 }
 

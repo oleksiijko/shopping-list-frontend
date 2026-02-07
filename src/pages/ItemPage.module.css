@@ -1,15 +1,15 @@
 .container {
-  min-height: 100vh;
+  min-height: 812px;
   padding: 48px 24px 24px;
-  background: var(--color-background-dark);
-  color: var(--color-text-light);
+  background: var(--color-background);
+  color: var(--color-text-primary);
 }
 
 .backArrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-light);
+  color: var(--color-text-primary);
   text-decoration: none;
   font-size: 1.25rem;
   margin-bottom: 24px;
@@ -23,25 +23,25 @@
   text-align: center;
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   margin: 0 0 24px;
 }
 
 .description {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--color-text-light);
+  color: var(--color-text-secondary);
   margin: 0;
   max-width: 100%;
 }
 
 .error {
-  color: #e57373;
+  color: #c62828;
   margin-bottom: 16px;
 }
 
 .backLink {
-  color: var(--color-text-light);
+  color: var(--color-text-primary);
   text-decoration: none;
 }
 
@@ -51,7 +51,6 @@
 
 .divider {
   height: 1px;
-  background: #fff;
+  background: var(--color-divider);
   margin-top: 48px;
-  opacity: 0.3;
 }

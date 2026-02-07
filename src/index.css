@@ -1,9 +1,9 @@
 :root {
   --color-background: #ffffff;
-  --color-background-dark: #000000;
-  --color-text-primary: #4a4a4a;
-  --color-text-secondary: #888888;
-  --color-text-light: #cccccc;
+  --color-background-outer: #f2f2f2;
+  --color-text-primary: #333333;
+  --color-text-secondary: #444444;
+  --color-text-light: #666666;
   --color-divider: #e5e5e5;
   --color-accent-orange: #f5a623;
 }
@@ -12,10 +12,15 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
   font-family: 'Inter', system-ui, sans-serif;
-  background: var(--color-background);
+  background: var(--color-background-outer);
+}
+
+body {
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {

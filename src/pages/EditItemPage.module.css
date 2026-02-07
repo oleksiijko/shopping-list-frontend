@@ -1,18 +1,50 @@
 .container {
+  min-height: 100vh;
   padding: 24px;
-  max-width: 480px;
-  margin: 0 auto;
+  background: var(--color-background-dark);
+  color: var(--color-text-light);
+}
+
+.formBlock {
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  padding: 24px;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-divider);
+  color: var(--color-text-primary);
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.closeButton:hover {
+  opacity: 0.8;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 24px;
 }
 
 .error {
-  color: #c00;
+  color: #e57373;
   margin-bottom: 16px;
 }
 
 .backLink {
-  display: inline-block;
-  margin-bottom: 24px;
-  color: #1976d2;
+  color: var(--color-text-light);
   text-decoration: none;
 }
 

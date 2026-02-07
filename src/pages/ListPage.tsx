@@ -1,11 +1,13 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { IconEdit, IconTrash, IconPlus } from '../components/Icons'
 import { listItems, removeItem } from '../api/items'
 import styles from './ListPage.module.css'
 
 export function ListPage() {
   const queryClient = useQueryClient()
+  const location = useLocation()
+  const navigate = useNavigate()
   const { data: items, isLoading, error } = useQuery({
     queryKey: ['items'],
     queryFn: listItems,
@@ -56,14 +58,15 @@ export function ListPage() {
             </span>
             <span className={styles.colPrice}>{item.price} NIS</span>
             <span className={styles.colActions}>
-              <Link
-                to={`/items/${item.id}/edit`}
+              <button
+                type="button"
+                onClick={() => navigate(`/items/${item.id}/edit`, { state: { backgroundLocation: location } })}
                 className={styles.iconButton}
                 title="Edit"
                 aria-label="Edit item"
               >
                 <IconEdit />
-              </Link>
+              </button>
               <button
                 type="button"
                 onClick={() => handleDelete(item.id)}
@@ -84,10 +87,14 @@ export function ListPage() {
           <span className={styles.colActions} />
         </div>
       </div>
-      <Link to="/items/new" className={styles.addButton}>
+      <button
+        type="button"
+        onClick={() => navigate('/items/new', { state: { backgroundLocation: location } })}
+        className={styles.addButton}
+      >
         <IconPlus className={styles.addIcon} />
         Add Product
-      </Link>
+      </button>
     </div>
   )
 }

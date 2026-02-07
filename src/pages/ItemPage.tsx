@@ -1,11 +1,13 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useLocation, useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import { IconBack } from '../components/Icons'
+import { IconBack, IconEdit } from '../components/Icons'
 import { getItem } from '../api/items'
 import styles from './ItemPage.module.css'
 
 export function ItemPage() {
   const { id } = useParams()
+  const location = useLocation()
+  const navigate = useNavigate()
   const idNum = id ? parseInt(id, 10) : NaN
   const isValidId = !Number.isNaN(idNum) && idNum >= 1
 
@@ -47,9 +49,20 @@ export function ItemPage() {
 
   return (
     <div className={styles.container}>
-      <Link to="/" className={styles.backArrow} aria-label="Back">
-        <IconBack />
-      </Link>
+      <div className={styles.header}>
+        <Link to="/" className={styles.backArrow} aria-label="Back">
+          <IconBack />
+        </Link>
+        <button
+          type="button"
+          onClick={() => navigate(`/items/${item.id}/edit`, { state: { backgroundLocation: location } })}
+          className={styles.editButton}
+          title="Edit"
+          aria-label="Edit item"
+        >
+          <IconEdit />
+        </button>
+      </div>
       <h1 className={styles.title}>{item.name}</h1>
       <p className={styles.description}>{item.description || '—'}</p>
       <div className={styles.divider} />

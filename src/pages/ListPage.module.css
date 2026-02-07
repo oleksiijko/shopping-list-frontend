@@ -101,10 +101,12 @@ a.iconButton {
   margin-top: 32px;
   padding: 12px 24px;
   background: none;
+  border: none;
   color: var(--color-accent-orange);
-  text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .addButton:hover {

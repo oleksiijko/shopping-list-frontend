@@ -23,8 +23,8 @@
 .row,
 .totalRow {
   display: grid;
-  grid-template-columns: 40px 1fr 72px 56px;
-  gap: 12px;
+  grid-template-columns: 40px 1fr 56px;
+  gap: 0;
   padding: 16px 0;
   align-items: center;
   border-bottom: 1px solid #e8e8e8;
@@ -65,14 +65,26 @@
   background: #e8e8e8;
 }
 
-.colName {
+.colNamePrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.colNamePrice .colPrice {
+  flex-shrink: 0;
+}
+
+.colPrice {
   color: var(--color-text-secondary);
   font-size: 0.95rem;
 }
 
-.colPrice {
-  text-align: right;
-  color: var(--color-text-secondary);
+.totalLabel {
+  color: var(--color-text-primary);
   font-size: 0.95rem;
 }
 
@@ -112,7 +124,6 @@
 
 .iconButton:hover:not(:disabled) {
   opacity: 0.85;
-  background: rgba(0, 0, 0, 0.04);
 }
 
 .iconButton:focus-visible {
@@ -134,10 +145,10 @@ a.iconButton {
 .addButton {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 8px;
-  margin-top: 32px;
-  padding: 12px 24px;
+  margin-top: 20px;
+  padding: 12px 0;
   background: none;
   border: none;
   color: var(--color-accent-orange);

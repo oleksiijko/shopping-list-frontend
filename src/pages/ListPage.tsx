@@ -51,12 +51,12 @@ export function ListPage() {
         {(items ?? []).map((item, index) => (
           <div key={item.id} className={styles.row}>
             <span className={styles.colIndex}>{index + 1}</span>
-            <span className={styles.colName}>
+            <div className={styles.colNamePrice}>
               <Link to={`/items/${item.id}`} className={styles.itemLink}>
                 {item.name}
               </Link>
-            </span>
-            <span className={styles.colPrice}>{item.price} NIS</span>
+              <span className={styles.colPrice}>{item.price} NIS</span>
+            </div>
             <span className={styles.colActions}>
               <button
                 type="button"
@@ -82,8 +82,10 @@ export function ListPage() {
         ))}
         <div className={styles.totalRow}>
           <span className={styles.colIndex} />
-          <span className={styles.colName}>Total :</span>
-          <span className={styles.colPrice}>{total} NIS</span>
+          <div className={styles.colNamePrice}>
+            <span className={styles.totalLabel}>Total :</span>
+            <span className={styles.colPrice}>{total} NIS</span>
+          </div>
           <span className={styles.colActions} />
         </div>
       </div>

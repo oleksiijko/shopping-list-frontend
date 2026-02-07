@@ -49,7 +49,7 @@ export function IconCloseCircle(props: SVGProps<SVGSVGElement>) {
 export function IconSubmitArrow(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width="21" height="18" viewBox="0 0 21 18" xmlns="http://www.w3.org/2000/svg" {...iconProps(props)}>
-      <path d="M0 9L18 0L8 9L18 18L0 9Z" />
+      <path d="M0.00999999 18L21 9L0.00999999 0L0 7L15 9L0 11L0.00999999 18Z" />
     </svg>
   )
 }

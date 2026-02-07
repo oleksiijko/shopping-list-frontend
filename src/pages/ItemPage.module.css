@@ -19,6 +19,16 @@
   color: var(--color-text-primary);
   text-decoration: none;
   font-size: 1.25rem;
+  border-radius: 4px;
+}
+
+.backArrow:hover {
+  opacity: 0.85;
+}
+
+.backArrow:focus-visible {
+  outline: 2px solid var(--color-accent-orange);
+  outline-offset: 2px;
 }
 
 .editButton {
@@ -30,14 +40,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 4px;
 }
 
 .editButton:hover {
-  opacity: 0.7;
+  opacity: 0.85;
 }
 
-.backArrow:hover {
-  opacity: 0.8;
+.editButton:focus-visible {
+  outline: 2px solid var(--color-accent-orange);
+  outline-offset: 2px;
 }
 
 .title {

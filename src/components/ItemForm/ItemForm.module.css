@@ -60,7 +60,9 @@
 .submitRow {
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
   margin-top: 24px;
+  padding-bottom: 0;
 }
 
 .submitButton {
@@ -70,12 +72,18 @@
   justify-content: center;
   background: none;
   border: none;
-  color: var(--color-accent-orange);
+  color: #ff941a;
   cursor: pointer;
+  border-radius: 4px;
 }
 
 .submitButton:hover:not(:disabled) {
-  opacity: 0.9;
+  opacity: 0.85;
+}
+
+.submitButton:focus-visible {
+  outline: 2px solid var(--color-accent-orange);
+  outline-offset: 2px;
 }
 
 .submitButton:disabled {

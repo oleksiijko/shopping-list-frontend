@@ -16,7 +16,8 @@
 }
 
 .list {
-  border-top: 1px solid var(--color-divider);
+  width: 100%;
+  border-top: 1px solid #e8e8e8;
 }
 
 .row,
@@ -26,7 +27,7 @@
   gap: 12px;
   padding: 16px 0;
   align-items: center;
-  border-bottom: 1px solid var(--color-divider);
+  border-bottom: 1px solid #e8e8e8;
 }
 
 .totalRow {
@@ -34,11 +35,20 @@
   font-weight: 500;
 }
 
+.totalRow .colIndex {
+  border-right: none;
+  padding-right: 0;
+  margin-right: 0;
+}
+
 .colIndex {
   font-family: 'Montserrat Alternates', system-ui, sans-serif;
   font-weight: 600;
   color: var(--color-accent-orange);
   font-size: 1rem;
+  border-right: 1px solid #e8e8e8;
+  padding-right: 12px;
+  margin-right: -12px;
 }
 
 .colName {
@@ -63,8 +73,15 @@
 
 .colActions {
   display: flex;
-  gap: 12px;
+  align-items: center;
   justify-content: flex-end;
+  gap: 0;
+}
+
+.colActions .iconButton:first-of-type {
+  border-right: 1px solid #e8e8e8;
+  margin-right: 4px;
+  padding-right: 8px;
 }
 
 .iconButton {
@@ -76,10 +93,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border-radius: 4px;
 }
 
 .iconButton:hover:not(:disabled) {
-  opacity: 0.7;
+  opacity: 0.85;
+}
+
+.iconButton:focus-visible {
+  outline: 2px solid var(--color-accent-orange);
+  outline-offset: 2px;
 }
 
 .iconButton:disabled {
@@ -107,10 +130,16 @@ a.iconButton {
   font-weight: 500;
   cursor: pointer;
   font-family: inherit;
+  border-radius: 4px;
 }
 
 .addButton:hover {
-  opacity: 0.9;
+  opacity: 0.85;
+}
+
+.addButton:focus-visible {
+  outline: 2px solid var(--color-accent-orange);
+  outline-offset: 2px;
 }
 
 .addIcon {

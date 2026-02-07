@@ -15,10 +15,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 4px;
 }
 
 .closeButton:hover {
-  opacity: 0.8;
+  opacity: 0.85;
+}
+
+.closeButton:focus-visible {
+  outline: 2px solid var(--color-accent-orange);
+  outline-offset: 2px;
 }
 
 .title {

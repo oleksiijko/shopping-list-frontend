@@ -26,6 +26,24 @@
   text-decoration: underline;
 }
 
+.deleteButton {
+  padding: 0;
+  border: none;
+  background: none;
+  color: #c00;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+.deleteButton:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+.deleteButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .details {
   display: grid;
   grid-template-columns: auto 1fr;

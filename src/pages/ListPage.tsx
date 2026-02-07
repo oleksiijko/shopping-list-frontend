@@ -35,7 +35,11 @@ export function ListPage() {
         {(items ?? []).map((item, index) => (
           <div key={item.id} className={styles.row}>
             <span className={styles.colIndex}>{index + 1}</span>
-            <span className={styles.colName}>{item.name}</span>
+            <span className={styles.colName}>
+              <Link to={`/items/${item.id}`} className={styles.itemLink}>
+                {item.name}
+              </Link>
+            </span>
             <span className={styles.colPrice}>{item.price}</span>
           </div>
         ))}

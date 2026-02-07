@@ -23,11 +23,12 @@
 .row,
 .totalRow {
   display: grid;
-  grid-template-columns: 36px 1fr 72px 56px;
+  grid-template-columns: 40px 1fr 72px 56px;
   gap: 12px;
   padding: 16px 0;
   align-items: center;
   border-bottom: 1px solid #e8e8e8;
+  position: relative;
 }
 
 .totalRow {
@@ -36,19 +37,32 @@
 }
 
 .totalRow .colIndex {
-  border-right: none;
   padding-right: 0;
   margin-right: 0;
 }
 
+.totalRow .colIndex::after {
+  display: none;
+}
+
 .colIndex {
+  position: relative;
   font-family: 'Montserrat Alternates', system-ui, sans-serif;
   font-weight: 600;
   color: var(--color-accent-orange);
-  font-size: 1rem;
-  border-right: 1px solid #e8e8e8;
+  font-size: 24px;
   padding-right: 12px;
   margin-right: -12px;
+}
+
+.colIndex::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -16px;
+  bottom: -17px;
+  width: 1px;
+  background: #e8e8e8;
 }
 
 .colName {
@@ -85,7 +99,7 @@
 }
 
 .iconButton {
-  padding: 4px;
+  padding: 6px;
   border: none;
   background: none;
   color: #7a7a93;
@@ -93,11 +107,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
+  border-radius: 999px;
 }
 
 .iconButton:hover:not(:disabled) {
   opacity: 0.85;
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .iconButton:focus-visible {

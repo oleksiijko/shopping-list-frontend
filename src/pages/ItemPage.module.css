@@ -5,13 +5,6 @@
   color: var(--color-text-primary);
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-}
-
 .backArrow {
   display: inline-flex;
   align-items: center;
@@ -20,6 +13,7 @@
   text-decoration: none;
   font-size: 1.25rem;
   border-radius: 4px;
+  margin-bottom: 24px;
 }
 
 .backArrow:hover {
@@ -27,27 +21,6 @@
 }
 
 .backArrow:focus-visible {
-  outline: 2px solid var(--color-accent-orange);
-  outline-offset: 2px;
-}
-
-.editButton {
-  padding: 4px;
-  border: none;
-  background: none;
-  color: #7a7a93;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-}
-
-.editButton:hover {
-  opacity: 0.85;
-}
-
-.editButton:focus-visible {
   outline: 2px solid var(--color-accent-orange);
   outline-offset: 2px;
 }

@@ -71,9 +71,11 @@
   padding: 4px;
   border: none;
   background: none;
-  color: var(--color-text-primary);
+  color: #7a7a93;
   cursor: pointer;
-  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .iconButton:hover:not(:disabled) {
@@ -110,5 +112,5 @@ a.iconButton {
 }
 
 .addIcon {
-  font-size: 1.25rem;
+  flex-shrink: 0;
 }

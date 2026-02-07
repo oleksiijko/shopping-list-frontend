@@ -64,17 +64,14 @@
 }
 
 .submitButton {
-  width: 48px;
-  height: 48px;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-accent-orange);
-  color: #fff;
+  background: none;
   border: none;
-  border-radius: 50%;
+  color: var(--color-accent-orange);
   cursor: pointer;
-  font-size: 1.25rem;
 }
 
 .submitButton:hover:not(:disabled) {

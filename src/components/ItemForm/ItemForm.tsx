@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { FaPaperPlane } from 'react-icons/fa'
+import { IconSubmitArrow } from '../Icons'
 import styles from './ItemForm.module.css'
 
 export interface ItemFormValues {
@@ -103,7 +103,7 @@ export function ItemForm({
       </div>
       <div className={styles.submitRow}>
         <button type="submit" disabled={loading} className={styles.submitButton} aria-label={submitLabel}>
-          <FaPaperPlane />
+          <IconSubmitArrow />
         </button>
       </div>
     </form>

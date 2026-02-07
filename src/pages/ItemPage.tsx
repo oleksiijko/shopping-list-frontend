@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import { FaArrowLeft } from 'react-icons/fa'
+import { IconBack } from '../components/Icons'
 import { getItem } from '../api/items'
 import styles from './ItemPage.module.css'
 
@@ -48,7 +48,7 @@ export function ItemPage() {
   return (
     <div className={styles.container}>
       <Link to="/" className={styles.backArrow} aria-label="Back">
-        <FaArrowLeft />
+        <IconBack />
       </Link>
       <h1 className={styles.title}>{item.name}</h1>
       <p className={styles.description}>{item.description || '—'}</p>

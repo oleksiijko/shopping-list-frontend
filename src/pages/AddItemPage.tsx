@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useNavigate, Link } from 'react-router-dom'
-import { FaTimes } from 'react-icons/fa'
+import { IconCloseCircle } from '../components/Icons'
 import { createItem } from '../api/items'
 import { ItemForm } from '../components/ItemForm'
 import styles from './AddItemPage.module.css'
@@ -25,7 +25,7 @@ export function AddItemPage() {
     <div className={styles.container}>
       <div className={styles.formBlock}>
         <Link to="/" className={styles.closeButton} aria-label="Close">
-          <FaTimes />
+          <IconCloseCircle />
         </Link>
         <h1 className={styles.title}>Add Item</h1>
         <ItemForm

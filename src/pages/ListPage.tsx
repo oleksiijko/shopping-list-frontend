@@ -1,7 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
-import { FaTrash, FaPencilAlt } from 'react-icons/fa'
-import { HiPlus } from 'react-icons/hi'
+import { IconEdit, IconTrash, IconPlus } from '../components/Icons'
 import { listItems, removeItem } from '../api/items'
 import styles from './ListPage.module.css'
 
@@ -63,7 +62,7 @@ export function ListPage() {
                 title="Edit"
                 aria-label="Edit item"
               >
-                <FaPencilAlt />
+                <IconEdit />
               </Link>
               <button
                 type="button"
@@ -73,7 +72,7 @@ export function ListPage() {
                 title="Delete"
                 aria-label="Delete item"
               >
-                <FaTrash />
+                <IconTrash />
               </button>
             </span>
           </div>
@@ -86,7 +85,7 @@ export function ListPage() {
         </div>
       </div>
       <Link to="/items/new" className={styles.addButton}>
-        <HiPlus className={styles.addIcon} />
+        <IconPlus className={styles.addIcon} />
         Add Product
       </Link>
     </div>

@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { FaTimes } from 'react-icons/fa'
+import { IconCloseCircle } from '../components/Icons'
 import { getItem, updateItem } from '../api/items'
 import { ItemForm } from '../components/ItemForm'
 import styles from './EditItemPage.module.css'
@@ -65,8 +65,8 @@ export function EditItemPage() {
   return (
     <div className={styles.container}>
       <div className={styles.formBlock}>
-        <Link to={`/items/${idNum}`} className={styles.closeButton} aria-label="Close">
-          <FaTimes />
+        <Link to="/" className={styles.closeButton} aria-label="Close">
+          <IconCloseCircle />
         </Link>
         <h1 className={styles.title}>Edit Item</h1>
         <ItemForm

@@ -1,19 +1,22 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { useNavigate, Link } from 'react-router-dom'
-import { IconCloseCircle } from '../components/Icons'
-import { createItem } from '../api/items'
-import { ItemForm } from '../components/ItemForm'
-import styles from './AddItemPage.module.css'
+import { createItem } from '../../api/items'
+import { ItemForm } from '../ItemForm'
+import { Modal } from '../Modal'
+import { IconCloseCircle } from '../Icons'
+import styles from './AddItemModal.module.css'
 
-export function AddItemPage() {
-  const navigate = useNavigate()
+interface AddItemModalProps {
+  onClose: () => void
+}
+
+export function AddItemModal({ onClose }: AddItemModalProps) {
   const queryClient = useQueryClient()
 
   const mutation = useMutation({
     mutationFn: createItem,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['items'] })
-      navigate('/')
+      onClose()
     },
   })
 
@@ -22,12 +25,12 @@ export function AddItemPage() {
   }
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Groceries List</h1>
-      <div className={styles.formBlock}>
-        <Link to="/" className={styles.closeButton} aria-label="Close">
+    <Modal onClose={onClose}>
+      <div className={styles.inner}>
+        <button type="button" onClick={onClose} className={styles.closeButton} aria-label="Close">
           <IconCloseCircle />
-        </Link>
+        </button>
+        <h1 className={styles.title}>Add Item</h1>
         <ItemForm
           initialValues={{ name: '', price: 0, description: '' }}
           onSubmit={handleSubmit}
@@ -36,6 +39,6 @@ export function AddItemPage() {
           errorText={mutation.isError ? (mutation.error as Error).message : undefined}
         />
       </div>
-    </div>
+    </Modal>
   )
 }

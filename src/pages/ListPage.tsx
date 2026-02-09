@@ -1,11 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { Link } from 'react-router-dom'
-import { FaTrash } from 'react-icons/fa'
+import { Link, useNavigate } from 'react-router-dom'
+import { IconEdit, IconTrash, IconPlus } from '../components/Icons'
 import { listItems, removeItem } from '../api/items'
 import styles from './ListPage.module.css'
 
 export function ListPage() {
   const queryClient = useQueryClient()
+  const navigate = useNavigate()
   const { data: items, isLoading, error } = useQuery({
     queryKey: ['items'],
     queryFn: listItems,
@@ -39,52 +40,62 @@ export function ListPage() {
 
   return (
     <div className={styles.container}>
-      <h1>Shopping List</h1>
+      <h1 className={styles.title}>Shopping List</h1>
       {deleteMutation.isError && (
         <p className={styles.error}>
           Error: {(deleteMutation.error as Error).message}
         </p>
       )}
-      <div className={styles.table}>
-        <div className={styles.header}>
-          <span className={styles.colIndex}>#</span>
-          <span className={styles.colName}>Name</span>
-          <span className={styles.colPrice}>Price</span>
-          <span className={styles.colActions} />
-        </div>
+      <div className={styles.list}>
         {(items ?? []).map((item, index) => (
           <div key={item.id} className={styles.row}>
             <span className={styles.colIndex}>{index + 1}</span>
-            <span className={styles.colName}>
+            <div className={styles.colNamePrice}>
               <Link to={`/items/${item.id}`} className={styles.itemLink}>
                 {item.name}
               </Link>
-            </span>
-            <span className={styles.colPrice}>{item.price}</span>
+              <span className={styles.colPrice}>{item.price} NIS</span>
+            </div>
             <span className={styles.colActions}>
+              <button
+                type="button"
+                onClick={() => navigate(`/items/${item.id}/edit`)}
+                className={styles.iconButton}
+                title="Edit"
+                aria-label="Edit item"
+              >
+                <IconEdit />
+              </button>
               <button
                 type="button"
                 onClick={() => handleDelete(item.id)}
                 disabled={deleteMutation.isPending && deleteMutation.variables === item.id}
-                className={styles.deleteButton}
+                className={styles.iconButton}
                 title="Delete"
                 aria-label="Delete item"
               >
-                <FaTrash />
+                <IconTrash />
               </button>
             </span>
           </div>
         ))}
         <div className={styles.totalRow}>
           <span className={styles.colIndex} />
-          <span className={styles.colName}>Total</span>
-          <span className={styles.colPrice}>{total}</span>
+          <div className={styles.colNamePrice}>
+            <span className={styles.totalLabel}>Total :</span>
+            <span className={styles.colPrice}>{total} NIS</span>
+          </div>
           <span className={styles.colActions} />
         </div>
       </div>
-      <Link to="/items/new" className={styles.addButton}>
+      <button
+        type="button"
+        onClick={() => navigate('/items/new')}
+        className={styles.addButton}
+      >
+        <IconPlus className={styles.addIcon} />
         Add Product
-      </Link>
+      </button>
     </div>
   )
 }

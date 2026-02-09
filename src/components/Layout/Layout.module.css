@@ -1,0 +1,108 @@
+.viewport {
+  min-height: 100vh;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-background-outer);
+}
+
+.device {
+  position: relative;
+  width: 375px;
+  min-height: 812px;
+  border-radius: 30px;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.statusBar {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 46px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 215px;
+  height: 30px;
+  border-radius: 0 0 24px 24px;
+  transform: translateX(-50%);
+  background: #dcdce5;
+}
+
+.statusSignal {
+  position: absolute;
+  top: 20px;
+  left: 33px;
+  width: 28px;
+  height: 9px;
+  border-radius: 12px;
+  background: rgba(220, 220, 229, 0.65);
+}
+
+.statusBattery {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  width: 18px;
+  height: 9px;
+  border: 1px solid rgba(220, 220, 229, 0.8);
+  border-radius: 3px;
+}
+
+.statusBattery::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: -2px;
+  width: 1px;
+  height: 3px;
+  border-radius: 1px;
+  background: rgba(220, 220, 229, 0.8);
+}
+
+.content {
+  position: relative;
+  min-height: 812px;
+}
+
+.bottomBar {
+  position: absolute;
+  inset: auto 0 0;
+  height: 34px;
+  border-top: 1px solid var(--color-divider);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.homeIndicator {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  width: 135px;
+  height: 5px;
+  border-radius: 100px;
+  transform: translateX(-50%);
+  background: #666;
+}
+
+@media (max-width: 420px) {
+  .viewport {
+    padding: 0;
+  }
+
+  .device {
+    width: 100vw;
+    min-height: 100vh;
+    border-radius: 0;
+  }
+
+  .content {
+    min-height: 100vh;
+  }
+}

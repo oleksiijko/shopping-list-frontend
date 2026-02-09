@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { IconSubmitArrow } from '../Icons'
 import styles from './ItemForm.module.css'
 
 export interface ItemFormValues {
@@ -62,27 +63,31 @@ export function ItemForm({
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       {displayError && <p className={styles.error}>{displayError}</p>}
-      <div className={styles.field}>
-        <label htmlFor="name">Name</label>
-        <input
-          id="name"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          disabled={loading}
-        />
-      </div>
-      <div className={styles.field}>
-        <label htmlFor="price">Price</label>
-        <input
-          id="price"
-          type="number"
-          min={0}
-          step={0.01}
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          disabled={loading}
-        />
+      <div className={styles.rowFields}>
+        <div className={styles.field}>
+          <label htmlFor="name">Name</label>
+          <input
+            id="name"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            disabled={loading}
+            placeholder="Name"
+          />
+        </div>
+        <div className={styles.field}>
+          <label htmlFor="price">Price</label>
+          <input
+            id="price"
+            type="number"
+            min={0}
+            step={0.01}
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            disabled={loading}
+            placeholder="Price"
+          />
+        </div>
       </div>
       <div className={styles.field}>
         <label htmlFor="description">Description</label>
@@ -91,12 +96,16 @@ export function ItemForm({
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           disabled={loading}
+          placeholder="Description"
           rows={3}
+          className={styles.descriptionInput}
         />
       </div>
-      <button type="submit" disabled={loading} className={styles.submitButton}>
-        {loading ? 'Saving...' : submitLabel}
-      </button>
+      <div className={styles.submitRow}>
+        <button type="submit" disabled={loading} className={styles.submitButton} aria-label={submitLabel}>
+          <IconSubmitArrow />
+        </button>
+      </div>
     </form>
   )
 }

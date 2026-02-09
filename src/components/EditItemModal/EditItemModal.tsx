@@ -1,13 +1,17 @@
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { IconCloseCircle } from '../components/Icons'
-import { getItem, updateItem } from '../api/items'
-import { ItemForm } from '../components/ItemForm'
-import styles from './EditItemPage.module.css'
+import { getItem, updateItem } from '../../api/items'
+import { ItemForm } from '../ItemForm'
+import { Modal } from '../Modal'
+import { IconCloseCircle } from '../Icons'
+import styles from './EditItemModal.module.css'
 
-export function EditItemPage() {
+interface EditItemModalProps {
+  onClose: () => void
+}
+
+export function EditItemModal({ onClose }: EditItemModalProps) {
   const { id } = useParams()
-  const navigate = useNavigate()
   const queryClient = useQueryClient()
   const idNum = id ? parseInt(id, 10) : NaN
   const isValidId = !Number.isNaN(idNum) && idNum >= 1
@@ -24,7 +28,7 @@ export function EditItemPage() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['items'] })
       queryClient.invalidateQueries({ queryKey: ['items', idNum] })
-      navigate('/')
+      onClose()
     },
   })
 
@@ -34,27 +38,35 @@ export function EditItemPage() {
 
   if (!isValidId) {
     return (
-      <div className={styles.container}>
-        <p className={styles.error}>Invalid item ID</p>
-        <Link to="/" className={styles.backLink}>
-          Back to list
-        </Link>
-      </div>
+      <Modal onClose={onClose}>
+        <div className={styles.inner}>
+          <p className={styles.error}>Invalid item ID</p>
+          <button type="button" onClick={onClose}>
+            Close
+          </button>
+        </div>
+      </Modal>
     )
   }
 
   if (isLoading) {
-    return <div className={styles.container}>Loading...</div>
+    return (
+      <Modal onClose={onClose}>
+        <div className={styles.inner}>Loading...</div>
+      </Modal>
+    )
   }
 
   if (error) {
     return (
-      <div className={styles.container}>
-        <p className={styles.error}>Error: {(error as Error).message}</p>
-        <Link to="/" className={styles.backLink}>
-          Back to list
-        </Link>
-      </div>
+      <Modal onClose={onClose}>
+        <div className={styles.inner}>
+          <p className={styles.error}>Error: {(error as Error).message}</p>
+          <button type="button" onClick={onClose}>
+            Close
+          </button>
+        </div>
+      </Modal>
     )
   }
 
@@ -63,12 +75,12 @@ export function EditItemPage() {
   }
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Edit Item</h1>
-      <div className={styles.formBlock}>
-        <Link to="/" className={styles.closeButton} aria-label="Close">
+    <Modal onClose={onClose}>
+      <div className={styles.inner}>
+        <button type="button" onClick={onClose} className={styles.closeButton} aria-label="Close">
           <IconCloseCircle />
-        </Link>
+        </button>
+        <h1 className={styles.title}>Edit Item</h1>
         <ItemForm
           initialValues={{
             name: item.name,
@@ -81,6 +93,6 @@ export function EditItemPage() {
           errorText={mutation.isError ? (mutation.error as Error).message : undefined}
         />
       </div>
-    </div>
+    </Modal>
   )
 }

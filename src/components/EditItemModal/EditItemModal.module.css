@@ -1,0 +1,40 @@
+.inner {
+  padding: 24px;
+  position: relative;
+}
+
+.closeButton {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #72717a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.closeButton:hover {
+  opacity: 0.85;
+}
+
+.closeButton:focus-visible {
+  outline: 2px solid var(--color-accent-orange);
+  outline-offset: 2px;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 24px;
+}
+
+.error {
+  color: #c00;
+  margin-bottom: 16px;
+}

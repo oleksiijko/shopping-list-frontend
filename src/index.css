@@ -1,8 +1,42 @@
+:root {
+  --color-background: #ffffff;
+  --color-surface: #f8f8fb;
+  --color-background-outer: #dcdce5;
+  --color-text-primary: #585666;
+  --color-text-secondary: #585666;
+  --color-text-input: #b1b0b8;
+  --color-divider: #e3e3e5;
+  --color-accent-orange: #ff941a;
+}
+
 * {
   box-sizing: border-box;
 }
 
-body {
+html,
+body,
+#root {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--color-background-outer);
+  color: var(--color-text-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat Alternates', system-ui, sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
 }

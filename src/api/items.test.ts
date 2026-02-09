@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { createItem, listItems, removeItem } from './items'
+import { createItem, getItem, listItems, removeItem, updateItem } from './items'
 
 const fetchMock = vi.fn()
 
@@ -51,6 +51,32 @@ describe('items api', () => {
     expect(options.body).toBe(
       JSON.stringify({ name: 'Cucumbers', price: 3, description: '' })
     )
+  })
+
+  it('getItem requests a single item by id', async () => {
+    const expectedItem = { id: 4, name: 'Milk', price: 8, description: '1L' }
+    fetchMock.mockResolvedValue(jsonResponse({ item: expectedItem }))
+
+    const result = await getItem(4)
+
+    expect(fetchMock).toHaveBeenCalledWith('/api/items/4')
+    expect(result).toEqual(expectedItem)
+  })
+
+  it('updateItem sends PUT payload', async () => {
+    fetchMock.mockResolvedValue(
+      jsonResponse({
+        item: { id: 2, name: 'Bread', price: 12, description: 'Updated' },
+      })
+    )
+
+    await updateItem(2, { price: 12, description: 'Updated' })
+
+    const [url, options] = fetchMock.mock.calls[0] as [string, RequestInit]
+    expect(url).toBe('/api/items/2')
+    expect(options.method).toBe('PUT')
+    expect(options.headers).toEqual({ 'Content-Type': 'application/json' })
+    expect(options.body).toBe(JSON.stringify({ price: 12, description: 'Updated' }))
   })
 
   it('listItems throws backend error message when request fails', async () => {

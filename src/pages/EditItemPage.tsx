@@ -64,11 +64,11 @@ export function EditItemPage() {
 
   return (
     <div className={styles.container}>
+      <h1 className={styles.title}>Edit Item</h1>
       <div className={styles.formBlock}>
         <Link to="/" className={styles.closeButton} aria-label="Close">
           <IconCloseCircle />
         </Link>
-        <h1 className={styles.title}>Edit Item</h1>
         <ItemForm
           initialValues={{
             name: item.name,

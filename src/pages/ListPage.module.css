@@ -1,125 +1,124 @@
 .container {
-  padding: 24px 20px;
+  min-height: 812px;
+  padding: 112px 24px 84px;
 }
 
 .title {
+  margin: 0;
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
   color: var(--color-text-primary);
-  margin: 0 0 24px;
 }
 
 .error {
-  color: #c00;
-  margin-bottom: 16px;
+  margin: 20px 0 0;
+  color: #c62828;
+  font-size: 14px;
 }
 
 .list {
+  margin-top: 50px;
   width: 100%;
-  border-top: 1px solid #e8e8e8;
 }
 
 .row,
 .totalRow {
   display: grid;
-  grid-template-columns: 40px 1fr 56px;
-  gap: 0;
-  padding: 16px 0;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
   align-items: center;
-  border-bottom: 1px solid #e8e8e8;
-  position: relative;
+  min-height: 64px;
+  border-bottom: 1px solid var(--color-divider);
 }
 
 .totalRow {
+  min-height: 34px;
   border-bottom: none;
-  font-weight: 500;
-}
-
-.totalRow .colIndex {
-  padding-right: 0;
-  margin-right: 0;
-}
-
-.totalRow .colIndex::after {
-  display: none;
+  margin-top: 2px;
 }
 
 .colIndex {
   position: relative;
-  font-family: 'Montserrat Alternates', system-ui, sans-serif;
-  font-weight: 600;
-  color: var(--color-accent-orange);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  padding-left: 8px;
   font-size: 24px;
-  padding-right: 12px;
-  margin-right: -12px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--color-accent-orange);
 }
 
-.colIndex::after {
+.row .colIndex::after {
   content: '';
   position: absolute;
+  top: 8px;
+  bottom: 8px;
   right: 0;
-  top: -16px;
-  bottom: -17px;
   width: 1px;
-  background: #e8e8e8;
+  background: var(--color-divider);
 }
 
 .colNamePrice {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   min-width: 0;
-  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 10px;
 }
 
-.colNamePrice .colPrice {
-  flex-shrink: 0;
-}
-
-.colPrice {
-  color: var(--color-text-secondary);
-  font-size: 0.95rem;
-}
-
-.totalLabel {
-  color: var(--color-text-primary);
-  font-size: 0.95rem;
-}
-
+.colPrice,
+.totalLabel,
 .itemLink {
+  font-size: 15px;
+  line-height: 1.2;
   color: var(--color-text-secondary);
   text-decoration: none;
 }
 
+.colPrice {
+  flex-shrink: 0;
+}
+
+.itemLink {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .itemLink:hover {
-  color: var(--color-text-primary);
+  opacity: 0.9;
+}
+
+.totalRow .colNamePrice {
+  justify-content: flex-start;
+  gap: 62px;
 }
 
 .colActions {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 0;
-}
-
-.colActions .iconButton:first-of-type {
-  border-right: 1px solid #e8e8e8;
-  margin-right: 4px;
-  padding-right: 8px;
+  gap: 8px;
+  min-width: 56px;
 }
 
 .iconButton {
-  padding: 6px;
   border: none;
   background: none;
-  color: #7a7a93;
-  cursor: pointer;
+  color: #7b7991;
+  width: 24px;
+  height: 24px;
+  padding: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
+  cursor: pointer;
+  border-radius: 6px;
 }
 
 .iconButton:hover:not(:disabled) {
@@ -136,27 +135,19 @@
   cursor: not-allowed;
 }
 
-a.iconButton {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
 .addButton {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 8px;
-  margin-top: 20px;
-  padding: 12px 0;
-  background: none;
+  margin-top: 48px;
+  padding: 0;
   border: none;
+  background: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 38px;
   color: var(--color-accent-orange);
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 400;
   cursor: pointer;
-  font-family: inherit;
-  border-radius: 4px;
 }
 
 .addButton:hover {

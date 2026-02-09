@@ -1,19 +1,22 @@
 .container {
   min-height: 812px;
-  padding: 48px 24px 24px;
-  background: var(--color-background);
+  padding: 112px 40px 84px;
+  position: relative;
   color: var(--color-text-primary);
 }
 
 .backArrow {
+  position: absolute;
+  top: 64px;
+  left: 20px;
+  width: 24px;
+  height: 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-primary);
+  color: #7b7991;
   text-decoration: none;
-  font-size: 1.25rem;
   border-radius: 4px;
-  margin-bottom: 24px;
 }
 
 .backArrow:hover {
@@ -26,29 +29,31 @@
 }
 
 .title {
+  margin: 0;
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
   color: var(--color-text-primary);
-  margin: 0 0 24px;
 }
 
 .description {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--color-text-secondary);
-  margin: 0;
-  max-width: 100%;
+  margin: 42px 0 0;
+  font-size: 15px;
+  line-height: 1.48;
+  color: var(--color-text-primary);
 }
 
 .error {
+  margin: 16px 0;
   color: #c62828;
-  margin-bottom: 16px;
+  font-size: 14px;
 }
 
 .backLink {
   color: var(--color-text-primary);
   text-decoration: none;
+  font-size: 14px;
 }
 
 .backLink:hover {
@@ -56,7 +61,5 @@
 }
 
 .divider {
-  height: 1px;
-  background: var(--color-divider);
-  margin-top: 48px;
+  display: none;
 }

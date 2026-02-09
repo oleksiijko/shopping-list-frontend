@@ -23,11 +23,11 @@ export function AddItemPage() {
 
   return (
     <div className={styles.container}>
+      <h1 className={styles.title}>Groceries List</h1>
       <div className={styles.formBlock}>
         <Link to="/" className={styles.closeButton} aria-label="Close">
           <IconCloseCircle />
         </Link>
-        <h1 className={styles.title}>Add Item</h1>
         <ItemForm
           initialValues={{ name: '', price: 0, description: '' }}
           onSubmit={handleSubmit}

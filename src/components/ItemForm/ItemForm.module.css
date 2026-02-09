@@ -1,40 +1,44 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 30px;
 }
 
 .error {
-  color: #c00;
-  margin: 0 0 8px;
+  margin: 0;
+  color: #c62828;
+  font-size: 13px;
 }
 
 .rowFields {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 20px;
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 14px;
 }
 
 .field label {
-  font-weight: 500;
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: var(--color-text-input);
 }
 
 .field input,
 .field textarea {
-  padding: 8px 0;
+  width: 100%;
   border: none;
   border-bottom: 1px solid var(--color-divider);
-  font-size: 1rem;
+  padding: 0 0 8px;
+  font-size: 15px;
+  line-height: 1.2;
+  color: var(--color-text-primary);
   background: transparent;
-  font-family: inherit;
 }
 
 .field input:focus,
@@ -43,8 +47,9 @@
   border-bottom-color: var(--color-text-primary);
 }
 
-.field input::placeholder {
-  color: var(--color-text-secondary);
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--color-text-input);
 }
 
 .field input:disabled,
@@ -54,27 +59,28 @@
 }
 
 .descriptionInput {
-  width: 100%;
+  min-height: 116px;
+  resize: none;
 }
 
 .submitRow {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
-  margin-top: 24px;
-  padding-bottom: 0;
+  margin-top: -8px;
 }
 
 .submitButton {
-  padding: 8px;
-  display: flex;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: none;
+  color: var(--color-accent-orange);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: none;
-  border: none;
-  color: #ff941a;
   cursor: pointer;
   border-radius: 4px;
+  padding: 0;
 }
 
 .submitButton:hover:not(:disabled) {

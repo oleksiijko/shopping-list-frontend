@@ -1,12 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { IconEdit, IconTrash, IconPlus } from '../components/Icons'
 import { listItems, removeItem } from '../api/items'
 import styles from './ListPage.module.css'
 
 export function ListPage() {
   const queryClient = useQueryClient()
-  const location = useLocation()
   const navigate = useNavigate()
   const { data: items, isLoading, error } = useQuery({
     queryKey: ['items'],
@@ -60,7 +59,7 @@ export function ListPage() {
             <span className={styles.colActions}>
               <button
                 type="button"
-                onClick={() => navigate(`/items/${item.id}/edit`, { state: { backgroundLocation: location } })}
+                onClick={() => navigate(`/items/${item.id}/edit`)}
                 className={styles.iconButton}
                 title="Edit"
                 aria-label="Edit item"
@@ -91,7 +90,7 @@ export function ListPage() {
       </div>
       <button
         type="button"
-        onClick={() => navigate('/items/new', { state: { backgroundLocation: location } })}
+        onClick={() => navigate('/items/new')}
         className={styles.addButton}
       >
         <IconPlus className={styles.addIcon} />
